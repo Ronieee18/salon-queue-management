@@ -1,0 +1,9 @@
+node_modules/
+dist/
+server/node_modules/
+server/data/
+.env
+.env.local
+.DS_Store
+*.log
+Salon_Queue_Management_Vibe_Coding_Guide.pdf
