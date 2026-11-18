@@ -80,13 +80,13 @@ This guarantees that whenever customers are ahead in line, the estimated wait is
 
 ## Test Checklist
 
-- [ ] **1. Multi-service total & limit:** Join with 2 services (e.g. Haircut 30m ₹150 + Beard Trim 15m ₹80) -> live summary shows `45 min` and `₹230`; attempting a 4th service is blocked.
-- [ ] **2. Phone validation & no duplicates:** Invalid phone (<10 digits) is rejected; submitting the same 10-digit phone twice redirects to the existing active spot without creating a duplicate token.
-- [ ] **3. Barber preference respected:** Customer A chooses `Ravi`, Customer B (behind A) chooses `'Any'`. Tapping `[ Call next ]` for `Amit` skips Customer A and calls Customer B.
-- [ ] **4. Live 'It's your turn!' alert:** Tapping `[ Call next ]` on Reception updates the customer's My Status window to the full-screen gold `'It's your turn!'` screen within 5 seconds.
-- [ ] **5. Barber Start/Done sync:** Tapping `[ Start ]` and `[ Done ]` on Barber View updates Reception Dashboard, Waiting Area TV, and My Status within 5 seconds.
-- [ ] **6. No-show & Re-add to end:** Marking a `Called` customer as `No-show` frees the barber; re-adding that customer appends them to the **END** of the waiting list with a **new token**.
-- [ ] **7. Close online queue:** Flipping the Queue Switch to `Closed` in Owner Settings disables the `[ Join Queue ]` button with a clear message, while Reception `[ + Add walk-in ]` still works.
-- [ ] **8. Bilingual Gujarati toggle:** Switching to Gujarati (`ગુજ`) translates all labels across all 7 screens cleanly with no text overflow and >=44px tap targets on phone screens.
-- [ ] **9. Decreasing wait time:** Completing a customer (`Done`) reduces the estimated wait time shown for remaining waiting customers on Home and My Status.
-- [ ] **10. Multi-window sync & Barber on break:** Opening Phone (`/status/:id`), Tablet (`/reception`), Barber (`/barber/ravi`), and TV (`/display`) simultaneously keeps all 4 windows in sync, and toggling `Ravi` On Break shows `'Ravi is on break'` to customers waiting for Ravi.
+- [x] **1. Multi-service total & limit:** Join with 2 services (e.g. Haircut 30m ₹150 + Beard Trim 15m ₹80) -> live summary shows `45 min` and `₹230`; attempting a 4th service is blocked. *(Verified via unit test + live browser QA)*
+- [x] **2. Phone validation & no duplicates:** Invalid phone (<10 digits) is rejected; submitting the same 10-digit phone twice redirects to the existing active spot without creating a duplicate token. *(Verified via unit test + live browser QA)*
+- [x] **3. Barber preference respected:** Customer A chooses `Ravi`, Customer B (behind A) chooses `'Any'`. Tapping `[ Call next ]` for `Amit` skips Customer A and calls Customer B. *(Verified via unit test + live browser QA)*
+- [x] **4. Live 'It's your turn!' alert:** Tapping `[ Call next ]` on Reception updates the customer's My Status window to the full-screen gold `'It's your turn!'` screen within 5 seconds. *(Verified via live sync + SSE/polling)*
+- [x] **5. Barber Start/Done sync:** Tapping `[ Start ]` and `[ Done ]` on Barber View updates Reception Dashboard, Waiting Area TV, and My Status within 5 seconds. *(Verified via live browser QA)*
+- [x] **6. No-show & Re-add to end:** Marking a `Called` customer as `No-show` frees the barber; re-adding that customer appends them to the **END** of the waiting list with a **new token**. *(Verified via unit test)*
+- [x] **7. Close online queue:** Flipping the Queue Switch to `Closed` in Owner Settings disables the `[ Join Queue ]` button with a clear message, while Reception `[ + Add walk-in ]` still works. *(Verified via unit test + live browser QA)*
+- [x] **8. Bilingual Gujarati toggle:** Switching to Gujarati (`ગુજ`) translates all labels across all 7 screens cleanly with no text overflow and >=44px tap targets on phone screens. *(Verified via live browser QA)*
+- [x] **9. Decreasing wait time:** Completing a customer (`Done`) reduces the estimated wait time shown for remaining waiting customers on Home and My Status. *(Verified via unit test)*
+- [x] **10. Multi-window sync & Barber on break:** Opening Phone (`/status/:id`), Tablet (`/reception`), Barber (`/barber/ravi`), and TV (`/display`) simultaneously keeps all 4 windows in sync, and toggling `Ravi` On Break shows `'Ravi is on break'` to customers waiting for Ravi. *(Verified via SSE + unit test + live browser QA)*

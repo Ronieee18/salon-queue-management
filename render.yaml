@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: royal-cuts-salon-api
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm run server
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: SERVE_STATIC
+        value: "false"
