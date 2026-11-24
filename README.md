@@ -1,7 +1,7 @@
 # Salon Queue Management System
 
-**Live demo:** https://salon-queue-royal-cuts.vercel.app *(replace with your Vercel URL after deploying)*
-**Hosted on:** Vercel (frontend) + Render / Railway (backend)
+**Live demo:** https://salon-queue-management-sigma.vercel.app \*\*
+**Hosted on:** Vercel (frontend) + Render (backend)
 **Staff test PIN (Reception, Barber & Owner screens):** `1234`
 
 ---
@@ -12,15 +12,15 @@
 
 ## Screens & Routes
 
-| # | Screen | Route | Audience | Notes |
-|---|---|---|---|---|
-| 1 | **Home** | `/` | Customers | Live queue count, estimated wait, barber status chips, Join Queue CTA |
-| 2 | **Join Queue** | `/join` | Customers | 10-digit phone validation, max 3 services, live time/price/wait summary, barber picker |
-| 3 | **My Status** | `/status/:id` | Customers | Large token, circular countdown, `'Start coming'` banner, full-screen gold turn alert + vibration, cancel modal |
-| 4 | **Reception Dashboard** | `/reception` | Receptionist (Tablet) | PIN `1234`, 3-column barber cards with progress bars, FIFO waiting list (>60m amber highlight), walk-in modal, Call Next, No-show & Re-add |
-| 5 | **Barber View** | `/barber/:name` | Barbers (Phone) | PIN `1234`, current customer + elapsed timer, `[ Start ] -> [ Done ]`, `'Next for you'` preview, Available / On Break toggle |
-| 6 | **Waiting Area TV** | `/display` | Waiting Area (TV) | 5m-readable high-contrast screen, per-barber `Now` token, Up Next 5 tokens, gold flash + Web Audio chime |
-| 7 | **Owner Settings** | `/admin` | Salon Owner | PIN `1234`, Today's stats cards, services EN/GU CRUD + on/off toggle, barbers on duty toggle, Online Queue Open/Closed switch |
+| #   | Screen                  | Route           | Audience              | Notes                                                                                                                                      |
+| --- | ----------------------- | --------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| 1   | **Home**                | `/`             | Customers             | Live queue count, estimated wait, barber status chips, Join Queue CTA                                                                      |
+| 2   | **Join Queue**          | `/join`         | Customers             | 10-digit phone validation, max 3 services, live time/price/wait summary, barber picker                                                     |
+| 3   | **My Status**           | `/status/:id`   | Customers             | Large token, circular countdown, `'Start coming'` banner, full-screen gold turn alert + vibration, cancel modal                            |
+| 4   | **Reception Dashboard** | `/reception`    | Receptionist (Tablet) | PIN `1234`, 3-column barber cards with progress bars, FIFO waiting list (>60m amber highlight), walk-in modal, Call Next, No-show & Re-add |
+| 5   | **Barber View**         | `/barber/:name` | Barbers (Phone)       | PIN `1234`, current customer + elapsed timer, `[ Start ] -> [ Done ]`, `'Next for you'` preview, Available / On Break toggle               |
+| 6   | **Waiting Area TV**     | `/display`      | Waiting Area (TV)     | 5m-readable high-contrast screen, per-barber `Now` token, Up Next 5 tokens, gold flash + Web Audio chime                                   |
+| 7   | **Owner Settings**      | `/admin`        | Salon Owner           | PIN `1234`, Today's stats cards, services EN/GU CRUD + on/off toggle, barbers on duty toggle, Online Queue Open/Closed switch              |
 
 ## Architecture & Real-Time Sync
 
@@ -51,14 +51,18 @@ Open `http://localhost:5173` on your browser.
 ## Deployment Guide (Vercel + Render / Railway)
 
 ### 1. Push to GitHub
+
 Create a **public** repository on your personal GitHub account and push:
+
 ```bash
 git remote add origin https://github.com/<your-username>/<your-repo-name>.git
 git push -u origin main
 ```
 
 ### 2. Deploy Backend (Render or Railway)
+
 **Option A — Render (Free Tier):**
+
 1. Go to [render.com](https://render.com) -> **New +** -> **Web Service** -> connect your GitHub repo.
 2. Settings (or use included `render.yaml`):
    - **Runtime:** Node
@@ -68,10 +72,12 @@ git push -u origin main
 3. Deploy and copy your live backend URL (e.g. `https://royal-cuts-salon-api.onrender.com`).
 
 **Option B — Railway:**
+
 1. Go to [railway.app](https://railway.app) -> **New Project** -> **Deploy from GitHub repo**.
 2. Set Start Command to `npm run server` and expose public networking to get your backend URL.
 
 ### 3. Deploy Frontend on Vercel
+
 1. Go to [vercel.com](https://vercel.com) -> **Add New Project** -> import the same GitHub repository.
 2. Vercel auto-detects **Vite** (`npm run build`, output `dist`). SPA routing is preconfigured via `vercel.json`.
 3. Add Environment Variable:
@@ -80,6 +86,7 @@ git push -u origin main
 5. Update the **Live demo** link at the very top of this `README.md`, commit, and push!
 
 ## Documentation
+
 - [`AGENTS.md`](AGENTS.md) — Agent working instructions & stack
 - [`docs/01-brief.md`](docs/01-brief.md) — Project brief, users, must-have features & don't-build scope
 - [`docs/02-screens.md`](docs/02-screens.md) — Detailed specification for all 7 screens
