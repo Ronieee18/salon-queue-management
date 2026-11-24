@@ -1,6 +1,6 @@
 # Salon Queue Management System
 
-**Live demo:** https://salon-queue-management-sigma.vercel.app \*\*
+**Live demo:** https://salon-queue-management-sigma.vercel.app
 **Hosted on:** Vercel (frontend) + Render (backend)
 **Staff test PIN (Reception, Barber & Owner screens):** `1234`
 
